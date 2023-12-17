@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="VerseVox.Frames.SideMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VerseVox.Frames"
+             mc:Ignorable="d" 
+             d:DesignHeight="685" d:DesignWidth="320
+             ">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="275*"/>
+            <RowDefinition Height="273*"/>
+            <RowDefinition Height="137*"/>
+        </Grid.RowDefinitions>
+        <DockPanel x:Name="FullSide" HorizontalAlignment="Left" Height="685" LastChildFill="False" VerticalAlignment="Top" Width="320" Grid.RowSpan="3"/>
+        <DockPanel x:Name="DownSide" HorizontalAlignment="Left" Height="137" LastChildFill="False" VerticalAlignment="Top" Width="320" Grid.Row="2"/>
+        <DockPanel x:Name="MiddleSide" HorizontalAlignment="Left" Height="273" LastChildFill="False" VerticalAlignment="Top" Width="320" Grid.Row="1"/>
+        <DockPanel x:Name="UpSide" HorizontalAlignment="Left" Height="275" LastChildFill="False" VerticalAlignment="Top" Width="320"/>
+        <DockPanel x:Name="HalfSide" HorizontalAlignment="Right" Height="548" LastChildFill="False" VerticalAlignment="Top" Width="320" Grid.RowSpan="2"/>
+
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,14 @@
+﻿<Window x:Class="VerseVox.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VerseVox"
+        mc:Ignorable="d"
+        Title="VoiceChat" Height="720" Width="1280" Foreground="{x:Null}" WindowStyle="None" ResizeMode="NoResize" Background="{x:Null}" WindowStartupLocation="CenterScreen" AllowsTransparency="True">
+    <Grid>
+        <Border BorderThickness="1" HorizontalAlignment="Center" Height="500" Margin="440,110" VerticalAlignment="Center" Width="400"/>
+        <Rectangle Fill="#66F4F4F5" HorizontalAlignment="Left" Height="500" Margin="440,110,0,0" Stroke="Black" VerticalAlignment="Top" Width="400" RadiusX="15" RadiusY="15"/>
+
+    </Grid>
+</Window>

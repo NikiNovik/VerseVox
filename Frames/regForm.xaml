@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="VerseVox.Frames.regForm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VerseVox.Frames"
+             mc:Ignorable="d" 
+             d:DesignHeight="686" d:DesignWidth="1280">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="441*"/>
+            <ColumnDefinition Width="398*"/>
+            <ColumnDefinition Width="441*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90*"/>
+            <RowDefinition Height="97*"/>
+            <RowDefinition Height="117*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="89*"/>
+            <RowDefinition Height="98*"/>
+        </Grid.RowDefinitions>
+        <Border BorderThickness="1" HorizontalAlignment="Center" Height="500" Margin="440,88,440,0" VerticalAlignment="Center" Width="400" Grid.RowSpan="11" Grid.ColumnSpan="3">
+            <Rectangle Fill="#66F4F4F5" RadiusX="15" RadiusY="15" Margin="0,110,0,0"/>
+        </Border>
+        <Border BorderThickness="1" HorizontalAlignment="Center" Height="500" Margin="440,88,440,0" VerticalAlignment="Center" Width="400" Grid.RowSpan="11" Grid.ColumnSpan="3">
+            <Rectangle Fill="#66F4F4F5" Margin="0,0,0,400" RadiusX="15" RadiusY="15"/>
+        </Border>
+        <Label Content="Рады вас видеть!" HorizontalAlignment="Center" Margin="10,10,10,9" VerticalAlignment="Center" Height="78" Grid.Row="1" Width="378" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Sylfaen" FontSize="36" FontWeight="Bold" Foreground="Black" BorderThickness="0"/>
+        <Border BorderThickness="1" HorizontalAlignment="Center" Height="500" Margin="440,88,440,0" VerticalAlignment="Center" Width="400" Grid.RowSpan="11" Grid.ColumnSpan="3">
+            <Rectangle Fill="#66F4F4F5" RadiusX="15" RadiusY="15" Margin="9,120,9,318"/>
+        </Border>
+        <Label Content="Пройдите процесс регистрации" HorizontalAlignment="Center" Margin="10,23,10,34" VerticalAlignment="Center" Height="60" Grid.Row="2" Width="378" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Sylfaen" FontWeight="Bold" Foreground="Black" BorderThickness="0" FontSize="16"/>
+        <Rectangle Fill="#66F4F4F5" RadiusX="15" RadiusY="15" Margin="75,0,74,0" Grid.Row="3" Grid.Column="1"/>
+        <TextBox x:Name="username" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="75,0,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="249" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="White" HorizontalContentAlignment="Center" BorderThickness="0" VerticalContentAlignment="Center" Foreground="Black" MaxLength="255" FontFamily="Sylfaen" Padding="10,0"/>
+        <Rectangle Fill="#66F4F4F5" RadiusX="15" RadiusY="15" Margin="75,0,74,0" Grid.Row="5" Grid.Column="1"/>
+        <TextBox x:Name="usermail" HorizontalAlignment="Left" Height="30" Margin="75,0,0,0" Grid.Row="5" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="249" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="White" HorizontalContentAlignment="Center" BorderThickness="0" VerticalContentAlignment="Center" Foreground="Black" MaxLength="255" FontFamily="Sylfaen" Grid.Column="1" Padding="10,0"/>
+        <Rectangle Fill="#66F4F4F5" RadiusX="15" RadiusY="15" Margin="75,0,74,0" Grid.Row="7" Grid.Column="1"/>
+        <TextBox x:Name="userpass" HorizontalAlignment="Left" Height="30" Margin="75,0,0,0" Grid.Row="7" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="249" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="White" HorizontalContentAlignment="Center" BorderThickness="0" VerticalContentAlignment="Center" Foreground="Black" MaxLength="16" FontFamily="Sylfaen" Grid.Column="1"/>
+        <Rectangle Fill="#66F4F4F5" RadiusX="15" RadiusY="15" Margin="75,0,74,0" Grid.Row="9" Grid.Column="1"/>
+        <TextBox x:Name="userpass_confirm" HorizontalAlignment="Left" Height="30" Margin="75,0,0,0" Grid.Row="9" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="249" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="White" HorizontalContentAlignment="Center" BorderThickness="0" VerticalContentAlignment="Center" Foreground="Black" MaxLength="16" FontFamily="Sylfaen" Grid.Column="1" Padding="10,0"/>
+
+        <Label Content="Ошибка" HorizontalAlignment="Center" Margin="75,31,74,38" VerticalAlignment="Center" Height="20" Grid.Row="10" Width="249" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Sylfaen" Foreground="Red" BorderThickness="0" FontSize="14" Padding="0" Background="{x:Null}" Visibility="Hidden"/>
+        <Rectangle Fill="#6600FF00" RadiusX="15" RadiusY="15" Margin="75,51,74,8" Grid.Row="10" Grid.Column="1"/>
+        <Label Content="Зарегистрироваться" HorizontalAlignment="Center" Margin="75,51,74,8" VerticalAlignment="Center" Height="30" Grid.Row="10" Width="249" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Sylfaen" Foreground="Black" BorderThickness="0" FontSize="14" Padding="0" Background="{x:Null}" MouseLeftButtonDown="sendRegRequest"/>
+
+        <Label Content="Укажите желаемый никнейм" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="398" HorizontalContentAlignment="Center" Grid.ColumnSpan="2" Margin="1,92,0,0" FontFamily="Sylfaen"/>
+        <Label Content="Укажите почту" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Top" Width="398" HorizontalContentAlignment="Center" Grid.ColumnSpan="2" Margin="1,0,0,0" FontFamily="Sylfaen"/>
+        <Label Content="Укажите пароль" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="6" VerticalAlignment="Top" Width="398" HorizontalContentAlignment="Center" Grid.ColumnSpan="2" Margin="1,0,0,0" FontFamily="Sylfaen"/>
+        <Label Content="Подтвердите указанный пароль" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Top" Width="398" HorizontalContentAlignment="Center" FontFamily="Sylfaen"/>
+
+    </Grid>
+</UserControl>
