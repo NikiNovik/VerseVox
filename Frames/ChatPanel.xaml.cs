@@ -74,12 +74,23 @@ namespace VerseVox.Frames
             SolidColorBrush solidColor = new SolidColorBrush();
             switch (CallStatus)
             {
+                
                 case 0:
+                    if (Scripts.NonStaticVariables.isCalling)
+                    {
+                        new Queries.ChatQueries().EndCallRequest();
+                        Scripts.NonStaticVariables.isCalling = false;
+
+                    }
                     callEnabled = false;
                     solidColor.Color = Colors.Gray;
                     callButton.Fill = solidColor;
                     break;
                 case 1:
+                    if(new Queries.ChatQueries().GetCallStatus() != 2)
+                    {
+                        Scripts.NonStaticVariables.isCalling = false;
+                    }
                     callEnabled = true;
                     solidColor.Color = Colors.Green;
                     callButton.Fill = solidColor;

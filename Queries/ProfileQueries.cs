@@ -1,5 +1,4 @@
 ﻿using MySqlConnector;
-using System;
 using System.Collections.Generic;
 
 namespace VerseVox.Queries

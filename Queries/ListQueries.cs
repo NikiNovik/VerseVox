@@ -14,7 +14,8 @@ namespace VerseVox.Queries
         public List<string> GetInvites()
         {
             List<string> usernames = new List<string>();
-            string query = "SELECT id, username FROM users WHERE id IN ( SELECT sender FROM usersfriends WHERE receiver = @id AND sender NOT IN ( SELECT receiver FROM usersfriends WHERE sender = @id) ) AND id != @id;";
+            string query = "SELECT id, username FROM users WHERE id IN ( SELECT sender FROM usersfriends " +
+                "WHERE receiver = @id AND sender NOT IN ( SELECT receiver FROM usersfriends WHERE sender = @id) ) AND id != @id;";
             MySqlCommand msc = new MySqlCommand(query, connection);
             msc.Parameters.AddWithValue("@id", Scripts.GlobalVariables.userid);
             connection.Open();
@@ -33,7 +34,8 @@ namespace VerseVox.Queries
         public List<string> GetFriends()
         {
             List<string> usernames = new List<string>();
-            string query = "SELECT id, username, status, activity FROM users WHERE id IN ( SELECT receiver FROM usersfriends WHERE sender = @id AND receiver IN ( SELECT sender FROM usersfriends WHERE receiver = @id ) ) AND id != @id;";
+            string query = "SELECT id, username, status, activity FROM users WHERE id IN ( SELECT receiver FROM usersfriends " +
+                "WHERE sender = @id AND receiver IN ( SELECT sender FROM usersfriends WHERE receiver = @id ) ) AND id != @id;";
             MySqlCommand msc = new MySqlCommand(query, connection);
             msc.Parameters.AddWithValue("@id", Scripts.GlobalVariables.userid);
             connection.Open();
@@ -71,6 +73,16 @@ namespace VerseVox.Queries
             return usernames;
         }
         public void applyRequest()
+        {
+            string query = "INSERT INTO usersfriends (receiver, sender) VALUES (@receiver, @sender);";
+            MySqlCommand msc = new MySqlCommand(query, connection);
+            msc.Parameters.AddWithValue("@sender", Scripts.GlobalVariables.userid);
+            msc.Parameters.AddWithValue("@receiver", Scripts.NonStaticVariables.selectedUserId);
+            connection.Open();
+            msc.ExecuteNonQuery();
+            connection.Close();
+        }
+        public void sendRequest()
         {
             string query = "INSERT INTO usersfriends (receiver, sender) VALUES (@receiver, @sender);";
             MySqlCommand msc = new MySqlCommand(query, connection);

@@ -1,5 +1,4 @@
-﻿using System;
-using Lidgren.Network;
+﻿using Lidgren.Network;
 using NAudio.Wave;
 
 namespace VerseVox.Scripts
@@ -10,8 +9,6 @@ namespace VerseVox.Scripts
         private WaveIn WaveIn;
         private BufferedWaveProvider WaveProvider;
 
-        private bool Connected;
-
         private NetPeerConfiguration ClientConfiguration;
         private NetClient Client;
 
@@ -21,39 +18,33 @@ namespace VerseVox.Scripts
             Client = new NetClient(ClientConfiguration);
             Client.Start();
 
-            Connected = false;
-
-            this.WaveOut = new WaveOut();
-            this.WaveIn = new WaveIn();
+            WaveOut = new WaveOut();
+            WaveIn = new WaveIn();
             WaveIn.WaveFormat = new WaveFormat(44100, 16, 2);
-
-            this.WaveProvider = new BufferedWaveProvider(this.WaveIn.WaveFormat);
-
-            WaveIn.DataAvailable += this.WaveAvailable;
-
-            this.WaveOut.Init(this.WaveProvider);
-
-            Client.RegisterReceivedCallback(this.MessageReceived);
+            WaveProvider = new BufferedWaveProvider(WaveIn.WaveFormat);
+            WaveIn.DataAvailable += WaveAvailable;
+            WaveOut.Init(WaveProvider);
+            Client.RegisterReceivedCallback(MessageReceived);
         }
         public void ExitProtoVoiceChat()
         {
             ConfigureModule();
             Client.Disconnect("Bye!");
-            Scripts.NonStaticVariables.isConnected = false;
+            NonStaticVariables.isConnected = false;
         }
         public void EnterProtoVoiceChat()
         {
             ConfigureModule();
-            Client.Connect(Scripts.GlobalVariables.ServerAddress, 27015);
+            Client.Connect(GlobalVariables.ServerAddress, 27015);
             WaveIn.StartRecording();
             WaveOut.Play();
-            Scripts.NonStaticVariables.isConnected = true;
+            NonStaticVariables.isConnected = true;
         }
 
         private void WaveAvailable(object Sender, WaveInEventArgs Args)
         {
             NetOutgoingMessage Broadcast = Client.CreateMessage();
-            Broadcast.Write(Scripts.NonStaticVariables.clientChannel); // Include channel information
+            Broadcast.Write(NonStaticVariables.clientChannel); // Include channel information
             Broadcast.Write(Args.Buffer);
             Client.SendMessage(Broadcast, NetDeliveryMethod.ReliableOrdered);
             Client.FlushSendQueue();
@@ -67,7 +58,7 @@ namespace VerseVox.Scripts
         private void MessageReceived(object Peer)
         {
             NetIncomingMessage Message = Client.ReadMessage();
-            if(Message != null)
+            if (Message != null)
             {
                 if (Message.MessageType == NetIncomingMessageType.Data)
                 {
@@ -76,14 +67,14 @@ namespace VerseVox.Scripts
                     int audioDataLength = Message.LengthBytes - sizeof(int); // Subtract the size of the channel information
                     byte[] audioData = Message.ReadBytes(audioDataLength);
 
-                    if (receivedChannel == Scripts.NonStaticVariables.clientChannel)
+                    if (receivedChannel == NonStaticVariables.clientChannel)
                     {
                         this.WaveProvider.AddSamples(audioData, 0, audioData.Length);
                     }
                     else
                     {
                         // Handle messages from other channels if needed
-                        Console.WriteLine($"Received message from channel {receivedChannel}, ignoring");
+                        //MessageBox.Show($"Received message from channel {receivedChannel}, ignoring");
                     }
                 }
             }
