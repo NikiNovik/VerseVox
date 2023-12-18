@@ -58,7 +58,8 @@
             <TextBox x:Name="MessageField"  HorizontalAlignment="Left" Height="69" Margin="10,20,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="900" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="#FF008EFF" FontSize="16" FontFamily="Sylfaen" SelectionOpacity="0" MaxLength="1024" KeyDown="sendMessage"/>
         </Grid>
 
-        <Rectangle x:Name="callButton" HorizontalAlignment="Left" Height="80" Margin="710,10,0,0" RadiusY="10" RadiusX="10" VerticalAlignment="Top" Width="230" Fill="#FF646464" Grid.Row="1" MouseLeftButtonDown="CallToUser"/>
+        <Rectangle x:Name="callButton" HorizontalAlignment="Left" Height="80" Margin="860,10,0,0" RadiusY="10" RadiusX="10" VerticalAlignment="Top" Width="80" Fill="#FF646464" Grid.Row="1" MouseLeftButtonDown="CallToUser"/>
+        <Image IsHitTestVisible="False" HorizontalAlignment="Left" Source="/Icons/CallButton.png" RenderOptions.BitmapScalingMode="HighQuality" Height="60" Margin="869,20,0,0" Grid.Row="1" VerticalAlignment="Top" Width="62"/>
 
     </Grid>
 </UserControl>

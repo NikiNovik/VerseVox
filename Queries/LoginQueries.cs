@@ -4,7 +4,6 @@ using System.Text;
 
 namespace VerseVox.Queries
 {
-    //            (this.Parent as DockPanel).Children.Remove(this);
     public class LoginQueries
     {
         MySqlConnection connection = new MySqlConnection("Server=" + Scripts.GlobalVariables.ServerAddress + "; User ID=root;Password=root;Database=versedb");

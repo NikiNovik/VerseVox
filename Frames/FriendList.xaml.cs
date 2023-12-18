@@ -109,15 +109,17 @@ namespace VerseVox.Frames
                     {
                         case 1:
                             FriendDialog.Visibility = Visibility.Visible;
+                            FriendDialog.Margin = new Thickness(32, cursorPos.Y - 45, 0, 0);
                             break;
                         case 2:
                             InviteDialog.Visibility = Visibility.Visible;
+                            InviteDialog.Margin = new Thickness(32, cursorPos.Y - 45, 0, 0);
                             break;
                         case 3:
                             sendDialog.Visibility = Visibility.Visible;
+                            sendDialog.Margin = new Thickness(32, cursorPos.Y - 45, 0, 0);
                             break;
                     }
-                    InviteDialog.Margin = new Thickness(32, cursorPos.Y - 45, 0, 0);
                 }
             }
 
@@ -181,7 +183,7 @@ namespace VerseVox.Frames
         private void sendRequest(object sender, MouseButtonEventArgs e)
         {
             sendDialog.Visibility = Visibility.Hidden;
-            new Queries.ListQueries().applyRequest();
+            new Queries.ListQueries().sendRequest();
             Scripts.NonStaticVariables.selectedUserId = 0;
             ChangeList();
         }

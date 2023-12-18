@@ -136,6 +136,7 @@ namespace VerseVox.Frames
             }
             if (Scripts.NonStaticVariables.clientChannel > 0 && !Scripts.NonStaticVariables.isCalling && Scripts.NonStaticVariables.isConnected)
             {
+                MessageBox.Show("Disconnected");
                 voIP.ExitProtoVoiceChat();
             }
 

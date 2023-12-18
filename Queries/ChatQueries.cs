@@ -79,7 +79,8 @@ namespace VerseVox.Queries
         }
         public int GetCallStatus()
         {
-            string query = "SELECT acceptedcall FROM userscalls JOIN users ON userscalls.receiverid = users.id WHERE senderid = @senderid AND receiverid = @receiverid OR senderid = @receiverid AND receiverid = @senderid";
+            string query = "SELECT acceptedcall FROM userscalls JOIN users ON userscalls.receiverid = users.id " +
+                "WHERE senderid = @senderid AND receiverid = @receiverid OR senderid = @receiverid AND receiverid = @senderid";
             MySqlCommand msc = new MySqlCommand(query, connection);
             msc.Parameters.AddWithValue("@senderid", Scripts.GlobalVariables.userid);
             msc.Parameters.AddWithValue("@receiverid", Scripts.NonStaticVariables.ChatID);
@@ -96,6 +97,10 @@ namespace VerseVox.Queries
                     {
                         return 1;
                     }
+                }
+                if (!reader.HasRows)
+                {
+                    return 0;
                 }
             }
             return 0;

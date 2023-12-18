@@ -222,6 +222,7 @@
   <ItemGroup>
     <Resource Include="Icons\NotifyOff.png" />
     <Resource Include="Icons\NotifyOn.png" />
+    <Resource Include="Icons\CallButton.png" />
     <Content Include="Icons\MicOn.png" />
     <Resource Include="Icons\MicOff.png" />
   </ItemGroup>

@@ -21,7 +21,7 @@ namespace VerseVox.Frames
             {
                 if (IsValidPassword())
                 {
-                    new Queries.registrationQueries().sendRegistationRequest(username.Text, usermail.Text, userpass.Text);
+                    new Queries.registrationQueries().sendRegistationRequest(username.Text, usermail.Text, userpass.Password);
                     if(Scripts.NonStaticVariables.successRegister)
                     {
                         System.Windows.MessageBox.Show("Регистрация успешна!");
@@ -55,10 +55,10 @@ namespace VerseVox.Frames
 
         public bool IsValidPassword()
         {
-            if (string.IsNullOrWhiteSpace(userpass.Text))
+            if (string.IsNullOrWhiteSpace(userpass.Password))
                 return false;
 
-            if (userpass_confirm.Text == userpass.Text)
+            if (userpass_confirm.Password == userpass.Password)
                 return true;
             else
                 return false;
